@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Price Converter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .converter-section { margin-top: 20px; }
+    .conversion-table { margin-top: 30px; }
+    .input-group-text { min-width: 120px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mt-5">Service Price Converter</h1>
+
+    <div class="converter-section">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Service One (Handjob)</h5>
+          <p>Select a rate and enter minutes or cost to convert:</p>
+
+          <div class="form-group">
+            <label for="rateType1">Select Rate Type:</label>
+            <select class="form-control" id="rateType1" onchange="updateRate('handjob')">
+              <option value="0.50">Default (new client) - $0.50/min</option>
+              <option value="0.40">Regular (3rd+ sessions) - $0.40/min</option>
+              <option value="0.30">Happy Hour - $0.30/min</option>
+              <option value="0.25">Birthday - $0.25/min</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Minutes</span>
+            </div>
+            <input type="number" class="form-control" id="minutes1" oninput="convertMinutesToCost('handjob')" placeholder="Enter minutes">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cost (USD)</span>
+            </div>
+            <input type="number" class="form-control" id="cost1" oninput="convertCostToMinutes('handjob')" placeholder="Enter USD">
+          </div>
+
+          <p id="result1"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="converter-section">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Service Two (Jerk Off Buddy)</h5>
+          <p>Select a rate and enter minutes or cost to convert:</p>
+
+          <div class="form-group">
+            <label for="rateType2">Select Rate Type:</label>
+            <select class="form-control" id="rateType2" onchange="updateRate('jerkoff')">
+              <option value="1.00">Default (new client) - $1.00/min</option>
+              <option value="0.90">Regular (3rd+ sessions) - $0.90/min</option>
+              <option value="0.80">Happy Hour - $0.80/min</option>
+              <option value="0.75">Birthday - $0.75/min</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Minutes</span>
+            </div>
+            <input type="number" class="form-control" id="minutes2" oninput="convertMinutesToCost('jerkoff')" placeholder="Enter minutes">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cost (USD)</span>
+            </div>
+            <input type="number" class="form-control" id="cost2" oninput="convertCostToMinutes('jerkoff')" placeholder="Enter USD">
+          </div>
+
+          <p id="result2"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="conversion-table">
+      <h3>Predefined Conversions</h3>
+
+      <h4>Service One (Handjob)</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Minutes</th>
+            <th>Default ($0.50/min)</th>
+            <th>Regular ($0.40/min)</th>
+            <th>Happy Hour ($0.30/min)</th>
+            <th>Birthday ($0.25/min)</th>
+          </tr>
+        </thead>
+        <tbody id="table1">
+        </tbody>
+      </table>
+
+      <h4>Service Two (Jerk Off Buddy)</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Minutes</th>
+            <th>Default ($1.00/min)</th>
+            <th>Regular ($0.90/min)</th>
+            <th>Happy Hour ($0.80/min)</th>
+            <th>Birthday ($0.75/min)</th>
+          </tr>
+        </thead>
+        <tbody id="table2">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="converter.js"></script>
+</body>
+</html>
